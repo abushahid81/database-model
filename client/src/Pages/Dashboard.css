@@ -1,0 +1,14 @@
+.btn-1 {
+    margin-left: 800px;
+}
+
+.btn-o {
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+}
+
+.btn-2 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
