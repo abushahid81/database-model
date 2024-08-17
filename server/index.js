@@ -1,23 +1,28 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+// importing packages
+import express from 'express';
+import homeRouter from './routes/home.routes.js';
+import cors from 'cors';
+import connectDB from './config/db.js';
+import noteRouter from './routes/note.routes.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+connectDB()
 
 const app = express();
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json())
+app.use(cors())
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/shoppingCart', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
 
-// Routes
-app.use('/api/cart', require('./routes/cart'));
+app.use('/', homeRouter)
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.use('/notes', noteRouter)
+
+
+const PORT = 5002
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+})

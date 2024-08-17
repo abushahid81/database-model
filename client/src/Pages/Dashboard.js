@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import "./Dashboard.css";
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -9,9 +10,12 @@ function Example() {
     const [show, setShow] = useState(false);
     const [count, setCount] = useState(0);
 
+
+
+
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
 
     const handleClickPlus = () => {
         setCount(count + 1);
@@ -19,6 +23,9 @@ function Example() {
     const handleClickMinus = () => {
         setCount(count - 1);
     }
+
+
+
     return (
         <>
             <Button variant="primary" className='btn-1' onClick={handleShow}>
@@ -37,10 +44,10 @@ function Example() {
                         label="Name"
                         className="mb-3"
                     >
-                        <Form.Control type="email" placeholder="name@example.com" />
+                        <Form.Control type="text" placeholder="name@example.com" />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingPassword" label="Product Name">
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="text" placeholder="Password" />
                     </FloatingLabel>
                 </Modal.Body>
                 <div className='btn-o'>
@@ -55,11 +62,13 @@ function Example() {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                    <Button variant="primary" type='submit' onClick={handleClose}>
+                        Save
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+
         </>
     );
 }

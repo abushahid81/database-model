@@ -4,7 +4,7 @@ import Sidebar from './Components/Sidebar';
 import Dashboard from './Pages/Dashboard';
 import Product from './Pages/Product';
 import ContactUs from './Pages/Contact';
-import Form from './Pages/Form';
+
 
 const App = () => {
   return (
@@ -16,7 +16,6 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/Product" element={<Product />} />
             <Route path="/Contact" element={<ContactUs />} />
-            <Route path="/Corm" element={<Form />} />
           </Routes>
         </div>
       </div>
